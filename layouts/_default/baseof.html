@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+{{- partial "head.html" . -}}
+<body>
+    {{- partial "nav/mobile.html" . -}}
+    <div class="container-fluid mvh-100">
+        <div class="row mvh-100">
+        {{- partial "header.html" . -}}
+            <main class="artisan-content col-md-9">
+                {{- partial "nav/desktop.html" . -}}
+                {{- block "main" . }}{{- end }}
+                {{- partial "footer.html" . -}}
+            </main>
+        </div>
+    </div>
+</body>
+</html>

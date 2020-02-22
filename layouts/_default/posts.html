@@ -1,0 +1,23 @@
+{{ define "main" }}
+<article class="artisan-article p-4">
+    <div class="artisan-article px-4 pt-4">
+        <h1 class="text-muted">
+            {{ .Title }}
+        </h1>
+        <div class="text-justify">
+            {{ .Content }}
+        </div>
+
+        {{ range .Pages.GroupByDate "2006" }}
+        <h2>{{ .Key }}</h2>
+        <ul>
+            {{ range .Pages }}
+            <li>
+                <a href="{{ .Permalink }}">{{.Title}}</a>
+            </li>
+            {{ end }}
+        </ul>
+        {{ end }}
+    </div>
+</article>
+{{ end }}

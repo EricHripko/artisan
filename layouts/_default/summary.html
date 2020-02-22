@@ -1,0 +1,14 @@
+<article class="artisan-article p-4">
+    {{- partial "article/header.html" . -}}
+    <h3>{{ .Title }}</h3>
+    <div class="text-muted text-justify">
+        {{ .Summary  }}
+    </div>
+    <div class="text-left">
+        <a href="{{ .Permalink }}"
+            class="btn btn-outline-primary">
+            <i class="fas fa-chevron-right mr-1"></i>
+            Read More
+        </a>
+    </div>
+</article>

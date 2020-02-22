@@ -1,0 +1,13 @@
+{{- $mainSections := .Site.Params.mainSections | default (slice "post") -}}
+{{- $section := where .Site.RegularPages "Section" "in" $mainSections -}}
+{{- $section_count := len $section -}}
+{{- if gt $section_count 0 -}}
+    <h6>Latest Posts</h6>
+    <ul class="list-unstyled">
+    {{ range (first 5 $section) }}
+        <li>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </li>
+    {{ end }}
+    </ul>
+{{- end -}}

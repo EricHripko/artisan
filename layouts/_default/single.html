@@ -1,0 +1,66 @@
+{{ define "main" }}
+<article class="artisan-article p-4">
+    {{- partial "article/header.html" . -}}
+    <h1 class="display-4">{{ .Title }}</h1>
+
+    <div class="text-muted text-justify">
+        {{ .Content }}
+    </div>
+
+    <div class="pb-2">
+        {{ range .Params.tags }}
+            <span class="badge badge-primary p-1">
+                <i class="fas fa-tag"></i>
+                {{ . }}
+            </span>
+        {{ end }}
+    </div>
+
+    <div class="container-fluid my-2">
+        <div class="row">
+            {{- if .PrevInSection -}}
+                <a href="{{ .PrevInSection.Permalink }}"
+                class="col-sm pl-0 artisan-article__seealso">
+                    <table class="text-muted h-100">
+                        <tr>
+                            <td class="pr-2">
+                                <i class="fas fa-chevron-left fa-2x text-primary"></i>
+                            </td>
+                            <td>
+                                <small>Previous Post</small>
+                                <h6>
+                                    {{ .PrevInSection.Title }}
+                                </h6>
+                            </td>
+                        </tr>
+                    </table>
+                </a>
+            {{- else -}}
+                <div class="col-sm">&nbsp;</div>
+            {{- end -}}
+            {{- if .NextInSection -}}
+                <a href="{{ .NextInSection.Permalink }}" class="col-sm pr-0 artisan-article__seealso">
+                    <table class="text-muted w-100 h-100">
+                        <tr>
+                            <td>
+                                <h6>
+                                    <small>Next Post</small>
+                                    <br>
+                                    {{ .NextInSection.Title }}
+                                </h6>
+                            </td>
+                            <td class="pl-2 text-right">
+                                <i class="fas fa-chevron-right fa-2x text-primary"></i>
+                            </td>
+                        </tr>
+                    </table>
+                </a>
+            {{- else -}}
+                <div class="col-sm">&nbsp;</div>
+            {{- end -}}
+        </div>
+    </div>
+
+    {{- partial "comments.html" . -}}
+</article>
+{{ end }}

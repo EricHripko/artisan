@@ -1,0 +1,90 @@
+<h6>Social</h6>
+<table>
+    {{ with .Site.Params.linkedin }}
+        <tr>
+            <td class="text-center">
+                <i class="fab fa-linkedin-in fa-lg text-primary"></i>
+            </td>
+            <td class="pl-1 py-2">
+                <a href="https://www.linkedin.com/in/{{ . }}"
+                   class="artisan-footer__link"
+                   target="_blank">
+                    {{ . }}
+                </a>
+            </td>
+        </tr>
+    {{- end -}}
+    {{ with .Site.Params.github }}
+        <tr>
+            <td class="text-center">
+                <i class="fab fa-github-alt fa-lg text-primary"></i>
+            </td>
+            <td class="pl-1 py-2">
+                <a href="https://github.com/{{ . }}"
+                   class="artisan-footer__link"
+                   target="_blank">
+                   {{ . }}
+                </a>
+            </td>
+        </tr>
+    {{- end -}}
+    {{ with .Site.Params.twitter }}
+        <tr>
+            <td class="text-center">
+                <i class="fab fa-twitter fa-lg text-primary"></i>
+            </td>
+            <td class="pl-1 py-2">
+                <a href="https://twitter.com/{{ . }}"
+                   class="artisan-footer__link"
+                   target="_blank">
+                   {{ . }}
+                </a>
+            </td>
+        </tr>
+    {{- end -}}
+    {{ with .Site.Params.facebook }}
+        <tr>
+            <td class="text-center">
+                <i class="fab fa-facebook-f fa-lg text-primary"></i>
+            </td>
+            <td class="pl-1 py-2">
+                <a href="https://www.facebook.com/{{ . }}"
+                   class="artisan-footer__link"
+                   target="_blank">
+                   {{ . }}
+                </a>
+            </td>
+        </tr>
+    {{- end -}}
+    {{ with .Site.Params.S00px }}
+        <tr>
+            <td class="text-center">
+                <i class="fab fa-500px fa-lg text-primary"></i>
+            </td>
+            <td class="pl-1 py-2">
+                <a href="https://500px.com/{{ . }}"
+                   class="artisan-footer__link"
+                   target="_blank">
+                   {{ . }}
+                </a>
+            </td>
+        </tr>
+    {{- end -}}
+
+    {{- $mainSections := .Site.Params.mainSections | default (slice "post") -}}
+    {{- $section := where .Site.RegularPages "Section" "in" $mainSections -}}
+    {{- $section_count := len $section -}}
+    {{- if gt $section_count 0 -}}
+        {{ $section_name := index (.Site.Params.mainSections) 0 }}
+        <tr>
+            <td class="text-center">
+                <i class="fas fa-rss fa-lg text-primary"></i>
+            </td>
+            <td class="pl-1 py-2">
+                <a href="{{ $section_name | absURL }}/index.xml" class="artisan-footer__link">
+                    RSS Feed
+                </a>
+            </td>
+        </tr>
+    {{- end -}}
+</table>

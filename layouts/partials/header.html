@@ -1,0 +1,36 @@
+<header class="col-md-3 artisan-profile bg-light mvh-100">
+    <div class="sticky-top">
+        <a class="artisan-profile-banner text-center pt-3 pb-2" href="{{ "/" | absURL }}">
+            <img src="{{ .Site.Params.avatar | default "http://via.placeholder.com/128x128" }}" class="artisan-profile-banner__avatar mb-2">
+            <h5>{{ .Site.Params.title }}</h5>
+            <h6 class="text-muted">{{ .Site.Params.subtitle }}</h6>
+        </a>
+
+        <table class="m-2 text-muted d-none d-md-block">
+            <tr>
+                <td class="px-2">
+                    <i class="fas fa-building fa-lg"></i>
+                </td>
+                <td class="py-2">
+                    {{ .Site.Params.work | default "Self-employed" }}
+                </td>
+            </tr>
+            <tr>
+                <td class="px-2">
+                    <i class="fas fa-university fa-lg"></i>
+                </td>
+                <td class="py-2">
+                    {{ .Site.Params.university | default "University of Life" }}
+                </td>
+            </tr>
+            <tr>
+                <td class="px-2">
+                    <i class="fas fa-map-marker fa-lg"></i>
+                </td>
+                <td class="py-2">
+                    {{ .Site.Params.location | default "Earth, Milky Way" }}
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>

@@ -1,0 +1,35 @@
+<footer class="artisan-footer pb-4 text-muted">
+    <div class="container">
+        <div class="row">
+            <section class="col-md-4 pt-4">
+                {{- partialCached "latest.html" . -}}
+            </section>
+            <section class="col-md-4 pt-4">
+                {{- partialCached "social.html" . -}}
+            </section>
+            <section class="col-md-4 pt-4">
+                <h6>{{ .Site.Params.title }}</h6>
+                <small>
+                    <p class="text-justify">
+                        {{ .Site.Params.description }}
+                    </p>
+                    <p>
+                        Copyright
+                        {{ now.Format "2006"}}
+                        <span>
+                            {{- if .Site.Params.author -}}
+                                {{ .Site.Params.author }}
+                            {{- else -}}
+                                {{ .Site.Params.title }}
+                            {{- end -}}
+                            .
+                        </span>
+                        <a href="https://github.com/EricHripko/artisan">Artisan</a>
+                        theme designed and developed by
+                        <a href="https://eric.hripko.com">Eric Hripko</a>.
+                    </p>
+                </small>
+            </section>
+        </div>
+    </div>
+</footer>

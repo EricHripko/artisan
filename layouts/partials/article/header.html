@@ -1,0 +1,17 @@
+<h6 class="text-muted">
+    {{ if .Date }}
+    on
+    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+        {{ .Date.Format "January 2, 2006" }}
+    </time>
+    {{ end }}
+    {{ if .Params.categories }}
+    in
+    {{ range $i, $category := .Params.categories -}}
+        {{- if $i -}}<span>, </span>{{- end -}}
+        <a href="{{ "categories" | absURL}}#{{ $category | urlize }}" class="artisan-link">
+            {{- $category -}}
+        </a>
+    {{- end }}
+    {{ end }}
+</h6>
