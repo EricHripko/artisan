@@ -1,5 +1,4 @@
 @import 'theme.scss';
-@import 'highlighting.scss';
 @import 'variables.scss';
 @import 'bootstrap/scss/bootstrap.scss';
 
@@ -7,6 +6,10 @@ $border-light: solid rgba(0, 0, 0, .12) 1px;
 
 html, body, .mvh-100 {
     min-height: 100vh;
+}
+
+.highlight > pre {
+    padding: 1.5rem;
 }
 
 .navbar {
