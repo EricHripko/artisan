@@ -6,7 +6,7 @@
 {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
 {{ $section_count := len $section }}
 {{ if ge $section_count 1 }}
-    <div class="artisan-article px-4 pt-4">
+    <div class="artisan-page px-4 pt-4">
         <h1 class="text-muted">
             Home
         </h1>

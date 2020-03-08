@@ -1,19 +1,23 @@
-<nav class="navbar navbar-light bg-light sticky-top navbar-expand d-none d-md-block">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="{{ "/" | absURL }}">
-                Home
-            </a>
-        </li>
-        {{ range .Site.Menus.main }}
-            {{- if not .HasChildren -}}
+<div class="container artisan-profile-container">
+    <div class="row bg-light">
+        <nav class="navbar navbar-light sticky-top navbar-expand d-none d-md-block col-md-12">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ .URL }}">
-                        {{ .Pre }}
-                        {{ .Name }}
+                    <a class="nav-link" href="{{ "/" | absURL }}">
+                        Home
                     </a>
                 </li>
-            {{- end -}}
-        {{ end }}
-    </ul>
-</nav>
+                {{ range .Site.Menus.main }}
+                    {{- if not .HasChildren -}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ .URL }}">
+                                {{ .Pre }}
+                                {{ .Name }}
+                            </a>
+                        </li>
+                    {{- end -}}
+                {{ end }}
+            </ul>
+        </nav>
+    </div>
+</div>

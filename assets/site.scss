@@ -3,8 +3,9 @@
 @import 'bootstrap/scss/bootstrap.scss';
 
 $border-light: solid rgba(0, 0, 0, .12) 1px;
+$width: 700px;
 
-html, body, .mvh-100 {
+html, body {
     min-height: 100vh;
 }
 
@@ -17,18 +18,24 @@ html, body, .mvh-100 {
     border-bottom: $border-light;
 }
 
-.artisan-profile {
+.artisan-profile-container {
+    border-left: $border-light;
     border-right: $border-light;
-    min-height: 100%;
+    max-width: $width;
+
+    &--delimit {
+        border: $border-light;
+    }
+}
+
+.artisan-profile {
+    background-image: url('../assets/background.png');
     padding-left: 0;
     padding-right: 0;
 }
 
 .artisan-profile-banner {
     display: block;
-
-    background-image: url('../assets/background.png');
-    border-bottom: $border-light;
 
     &:hover, &:visited, &:active {
         text-decoration: none;
@@ -48,9 +55,18 @@ html, body, .mvh-100 {
     padding-right: 0;
 }
 
-.artisan-article {
-    max-width: 700px;
+.artisan-page {
+    max-width: $width;
     margin: 0 auto;
+}
+
+.artisan-article {
+    background: white;
+    border: $border-light;
+    border-radius: $border-radius-sm;
+    box-shadow: $box-shadow-sm;
+    max-width: $width;
+    margin: 1em auto;
 
     &__seealso {
         text-decoration: none;
@@ -63,10 +79,6 @@ html, body, .mvh-100 {
     img {
         max-width: 100%;
         height: auto;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        color: $body-color;
     }
 }
 
